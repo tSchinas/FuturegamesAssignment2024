@@ -7,14 +7,16 @@ namespace Mechadroids.UI {
     public class DebugMenuHandler {
         private readonly UIPrefabs uiPrefabs;
         private readonly InputHandler inputHandler;
-        private DebugMenuReference debugMenu;
+        private static DebugMenuReference debugMenu;
 
         public DebugMenuHandler(UIPrefabs uiPrefabs, InputHandler inputHandler) {
             this.uiPrefabs = uiPrefabs;
             this.inputHandler = inputHandler;
         }
-
-        public void Initialize() {
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        public static void Initialize() {
+            UIPrefabs uiPrefabs = Resources.Load<UIPrefabs>("UIPrefabs");
+            //InputHandler inputHandler = Resources.Load<InputHandler>();
             debugMenu = Object.Instantiate(uiPrefabs.debugMenuReferencePrefab);
             debugMenu.gameObject.SetActive(false);
         }

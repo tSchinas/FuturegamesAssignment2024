@@ -1,6 +1,9 @@
+using Mechadroids.UI;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using UnityEditor;
 
 namespace Mechadroids {
     /// <summary>
@@ -20,6 +23,8 @@ namespace Mechadroids {
             // ...then we initialize the entrypoint and consecutively the game
             Entrypoint entrypoint = FindFirstObjectByType<Entrypoint>();
             entrypoint.Initialize();
+            
+            
         }
 
         private IEnumerator LoadSceneAdditiveIfNotLoaded(string sceneName) {

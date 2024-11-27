@@ -1,2 +1,16 @@
 fileFormatVersion: 2
 guid: b55ba427c7951b241b5ce59d19e8574b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - tankBody: {instanceID: 0}
+  - turretBase: {instanceID: 0}
+  - barrel: {instanceID: 0}
+  - barrelEnd: {instanceID: 0}
+  - playerSettings: {fileID: 11400000, guid: 13972ff62359e6246bc378006d6cbffe, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

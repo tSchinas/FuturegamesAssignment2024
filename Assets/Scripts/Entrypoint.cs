@@ -34,7 +34,7 @@ namespace Mechadroids {
             // this define symbol, if removed from Project Settings, makes sure that in a release build this code will be stripped
 #if GAME_DEBUG
             debugMenuHandler = new DebugMenuHandler(uiPrefabs, inputHandler);
-            debugMenuHandler.Initialize();
+            //debugMenuHandler.Initialize();
 #endif
             playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition, followCamera, debugMenuHandler);
             playerEntityHandler.Initialize();
@@ -42,6 +42,7 @@ namespace Mechadroids {
             aiEntitiesHandler = new AIEntitiesHandler(aISettings, aiParentTransform);
             aiEntitiesHandler.Initialize();
 
+            //Instantiate(playerPrefabs.playerReferencePrefab);
             // it is very important to control the initialization state to avoid running tick functions with data that is not yet initialized
             initialized = true;
         }

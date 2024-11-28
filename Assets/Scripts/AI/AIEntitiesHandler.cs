@@ -30,7 +30,7 @@ namespace Mechadroids {
                     enemyEntityHandler.Initialize();
                     
                     EnemyEntityHandlers.TryAdd(index, enemyEntityHandler);
-                    Debug.Log(enemy.enemyCount);
+                    Debug.Log(index);
                     index++;
                 }
             }

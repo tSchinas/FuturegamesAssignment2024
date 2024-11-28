@@ -16,9 +16,9 @@ namespace Mechadroids {
             this.playerEntityHandler = playerEntityHandler;
         }
 
-        public void Enter(MonoBehaviour mono) {
+        public void Enter() {
             idleTimer = 0f;
-            //timerHandled = false;
+            
             // Optionally set idle animation
             Debug.Log(enemyReference.gameObject.name + " entered idle state!");
             

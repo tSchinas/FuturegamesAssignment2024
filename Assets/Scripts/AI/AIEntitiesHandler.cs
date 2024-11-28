@@ -21,11 +21,17 @@ namespace Mechadroids {
 
         public void Initialize() {
             // initialize all enemies here
+            int index = 0;
+            
             foreach(EnemyGroup enemy in aiSettings.enemiesToSpawn) {
                 for(int i = 0; i < enemy.enemyCount; i++) {
+                    
                     EnemyEntityHandler enemyEntityHandler = new(enemy.enemySettings, parentHolder, playerEntityHandler);
                     enemyEntityHandler.Initialize();
-                    EnemyEntityHandlers.TryAdd(i, enemyEntityHandler);
+                    
+                    EnemyEntityHandlers.TryAdd(index, enemyEntityHandler);
+                    Debug.Log(enemy.enemyCount);
+                    index++;
                 }
             }
         }

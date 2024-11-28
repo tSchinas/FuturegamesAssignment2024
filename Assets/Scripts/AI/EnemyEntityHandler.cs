@@ -29,13 +29,12 @@ namespace Mechadroids {
             // Initialize the default state (Idle State)
             EntityState = new EnemyIdleState(this, enemyReference, playerEntityHandler);
             EntityState.Enter();
-            EntityState.LogicUpdate();
+            
             
         }
 
         public void Tick() {
             EntityState.HandleInput();
-            
             EntityState.LogicUpdate();
         }
 

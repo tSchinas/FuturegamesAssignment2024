@@ -13,7 +13,7 @@ namespace Mechadroids {
         private readonly CinemachineCamera followCamera;
         private readonly DebugMenuHandler debugMenuHandler;
 
-        private PlayerReference playerReference;
+        public PlayerReference playerReference;
         private HitIndicator hitIndicatorInstance;
 
         public IEntityState EntityState { get; set; }
@@ -31,8 +31,7 @@ namespace Mechadroids {
 
             playerReference = Object.Instantiate(playerPrefabs.playerReferencePrefab);
             playerReference.transform.position = playerStartPosition.position;
-            //PlayerInput playerInput = playerReference.gameObject.AddComponent<PlayerInput>();
-            //playerInput.notificationBehavior = PlayerNotifications.InvokeUnityEvents;
+           
             CinemachineCamera followCamera = Object.FindFirstObjectByType<CinemachineCamera>();
             Transform targetToFollow = playerReference.turretBase.transform;
             followCamera.Follow = targetToFollow;

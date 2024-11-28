@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: AISettings
   m_EditorClassIdentifier: 
   enemiesToSpawn:
+  - enemySettings: {fileID: 11400000, guid: 4e17d514351f04240b22ce57d4bf3173, type: 2}
+    enemyCount: 1
   - enemySettings: {fileID: 11400000, guid: 284ec2771b0cb5a4c8e7750bb4b50b11, type: 2}
-    enemyCount: 2
+    enemyCount: 1

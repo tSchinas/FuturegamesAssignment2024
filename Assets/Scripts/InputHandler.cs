@@ -31,7 +31,12 @@ namespace Mechadroids {
 
         public void Dispose() {
             SetCursorState(true, CursorLockMode.None);
-            inputActions.Disable();
+            InputActions.Disable();
+            InputActions.Player.Move.performed -= ctx => MovementInput = ctx.ReadValue<Vector2>();
+            InputActions.Player.Move.canceled -= ctx => MovementInput = Vector2.zero;
+
+            InputActions.Player.Look.performed -= ctx => MouseDelta = ctx.ReadValue<Vector2>();
+            InputActions.Player.Look.canceled -= ctx => MouseDelta = Vector2.zero;
         }
     }
 }

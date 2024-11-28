@@ -6,28 +6,36 @@ namespace Mechadroids {
     /// Class that handles the states for each enemy behaviour. Each enemy will have its own entity handler
     /// </summary>
     public class EnemyEntityHandler : IEntityHandler {
-        private readonly EnemySettings enemySettings;
+        public readonly EnemySettings enemySettings;
         private readonly Transform parentHolder;
         private EnemyReference enemyReference;
+        private readonly PlayerEntityHandler playerEntityHandler;
 
+        
         public IEntityState EntityState { get; set; }
 
-        public EnemyEntityHandler(EnemySettings enemySettings, Transform parentHolder) {
+        public EnemyEntityHandler(EnemySettings enemySettings, Transform parentHolder, PlayerEntityHandler playerEntityHandler) {
             this.enemySettings = enemySettings;
             this.parentHolder = parentHolder;
+            this.playerEntityHandler = playerEntityHandler;
+            
         }
 
         public void Initialize() {
             enemyReference = Object.Instantiate(enemySettings.enemy.enemyReferencePrefab, parentHolder);
+            
             enemyReference.transform.position = enemySettings.routeSettings.routePoints[0];
-
+            enemyReference.enemySettings = enemySettings;
             // Initialize the default state (Idle State)
-            EntityState = new EnemyIdleState(this, enemyReference);
+            EntityState = new EnemyIdleState(this, enemyReference, playerEntityHandler);
             EntityState.Enter();
+            EntityState.LogicUpdate();
+            
         }
 
         public void Tick() {
             EntityState.HandleInput();
+            
             EntityState.LogicUpdate();
         }
 

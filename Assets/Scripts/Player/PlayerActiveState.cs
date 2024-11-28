@@ -41,6 +41,7 @@ namespace Mechadroids {
 
         public void Exit() {
             // Clean up when exiting the state
+            inputHandler.Dispose();
         }
         private void HandleMovement() {
             if(inputHandler.MovementInput.y != 0) {
@@ -57,7 +58,6 @@ namespace Mechadroids {
 
             float rotationAmount = inputHandler.MovementInput.x * playerReference.playerSettings.rotationSpeed * Time.deltaTime;
             playerReference.tankBody.Rotate(Vector3.up, rotationAmount);
-            Debug.Log(currentSpeed);
         }
 
         private void HandleTurretAiming() {

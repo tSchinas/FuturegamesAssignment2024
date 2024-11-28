@@ -12,20 +12,24 @@ namespace Mechadroids {
         public CinemachineCamera followCamera;
         public Transform aiParentTransform;
 
-        private PlayerPrefabs playerPrefabs;
+        public PlayerPrefabs playerPrefabs;
         private InputHandler inputHandler;
         private PlayerEntityHandler playerEntityHandler;
-        private AISettings aISettings;
-        private AIEntitiesHandler aiEntitiesHandler;
+        private AISettings aiSettings;
+        public AIEntitiesHandler aiEntitiesHandler;
         private bool initialized;
         private DebugMenuHandler debugMenuHandler;
         private UIPrefabs uiPrefabs;
+        //private EnemySettings enemySettings;
+        //private Route route;
 
         public void Initialize() {
             // Load resources if they are present in a /Resource folder anywhere in the project
             playerPrefabs = Resources.Load<PlayerPrefabs>("PlayerPrefabs");
-            aISettings = Resources.Load<AISettings>("AISettings");
+            aiSettings = Resources.Load<AISettings>("AISettings");
             uiPrefabs = Resources.Load<UIPrefabs>("UIPrefabs");
+            //enemySettings = Resources.Load<EnemySettings>("EnemySettings");
+            //route = Resources.Load<Route>("Route");
 
             // Initialize systems
             inputHandler = new InputHandler();
@@ -39,8 +43,10 @@ namespace Mechadroids {
             playerEntityHandler = new PlayerEntityHandler(playerPrefabs, inputHandler, playerStartPosition, followCamera, debugMenuHandler);
             playerEntityHandler.Initialize();
 
-            aiEntitiesHandler = new AIEntitiesHandler(aISettings, aiParentTransform);
-            aiEntitiesHandler.Initialize();
+            
+
+            aiEntitiesHandler = new AIEntitiesHandler(aiSettings, aiParentTransform, playerEntityHandler);
+            //aiEntitiesHandler.Initialize();
 
             //Instantiate(playerPrefabs.playerReferencePrefab);
             // it is very important to control the initialization state to avoid running tick functions with data that is not yet initialized

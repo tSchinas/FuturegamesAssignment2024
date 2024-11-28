@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Mechadroids {
     // Route points for the AI
@@ -6,5 +7,6 @@ namespace Mechadroids {
     public class Route : ScriptableObject {
         public int routeId;
         public Vector3 [] routePoints;
+        public bool showGizmos = false;
     }
 }

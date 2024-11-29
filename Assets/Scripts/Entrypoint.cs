@@ -48,7 +48,7 @@ namespace Mechadroids {
             aiEntitiesHandler = new AIEntitiesHandler(aiSettings, aiParentTransform, playerEntityHandler);
             //aiEntitiesHandler.Initialize();
 
-            //Instantiate(playerPrefabs.playerReferencePrefab);
+            
             // it is very important to control the initialization state to avoid running tick functions with data that is not yet initialized
             initialized = true;
         }
@@ -59,7 +59,9 @@ namespace Mechadroids {
             }
             playerEntityHandler.Tick();
             aiEntitiesHandler.Tick();
+#if UNITY_EDITOR
             debugMenuHandler.Tick();
+#endif
         }
 
         public void FixedUpdate() {
@@ -77,7 +79,9 @@ namespace Mechadroids {
             inputHandler.Dispose();
             playerEntityHandler.Dispose();
             aiEntitiesHandler.Dispose();
+#if UNITY_EDITOR
             debugMenuHandler.Dispose();
+#endif
         }
     }
 }

@@ -13,14 +13,15 @@ namespace Mechadroids.UI {
             this.uiPrefabs = uiPrefabs;
             this.inputHandler = inputHandler;
         }
+#if GAME_DEBUG
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         public static void Initialize() {
             UIPrefabs uiPrefabs = Resources.Load<UIPrefabs>("UIPrefabs");
-            //InputHandler inputHandler = Resources.Load<InputHandler>();
+
             debugMenu = Object.Instantiate(uiPrefabs.debugMenuReferencePrefab);
             debugMenu.gameObject.SetActive(false);
         }
-
+#endif
         private void ToggleMenu() {
             debugMenu.gameObject.SetActive(!debugMenu.gameObject.activeSelf);
             if(debugMenu.gameObject.activeSelf) {

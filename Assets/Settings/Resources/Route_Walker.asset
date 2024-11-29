@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb12a7df1b30487f815e3192ff43d1f8, type: 3}
   m_Name: Route_Walker
   m_EditorClassIdentifier: 
-  routeId: 0
+  routeId: 1
   routePoints:
   - {x: -18.1, y: 0.25, z: 738.1}
   - {x: 38.464417, y: 0.25, z: 656.26025}
   - {x: 112.3, y: 0.25, z: 802}
   - {x: 38.464417, y: 0.25, z: 656.26025}
+  showGizmos: 1

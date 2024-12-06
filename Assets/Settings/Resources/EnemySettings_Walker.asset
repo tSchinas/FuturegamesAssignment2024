@@ -19,7 +19,7 @@ MonoBehaviour:
     patrolSpeed: 10
     patrolRotationSpeed: 3
     detectionRadius: 60
-    maxDistanceFromPlayer: 5
+    maxDistanceFromPlayer: 30
     attackRange: 75
     attackSpeed: 7
     attackRotationSpeed: 2

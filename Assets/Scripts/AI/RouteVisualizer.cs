@@ -11,7 +11,8 @@ namespace Mechadroids {
 
             DrawDefaultInspector();
 
-            if(GUILayout.Button(routeData.showGizmos ? "Hide Gizmos" : "Show Gizmos")) {
+            if(GUILayout.Button(routeData.showGizmos ? "Hide Gizmos" : "Show Gizmos"))
+            {
                 routeData.showGizmos = !routeData.showGizmos;
 
                 //SceneView.RepaintAll();
@@ -28,11 +29,14 @@ namespace Mechadroids {
         private void OnSceneUpdate(SceneView sceneView) {
             Route routeData = (Route)target;
             Handles.color = Color.yellow;
-            //int lastPoint = routeData.routePoints.Length;
+            int rpIndex;
+            string rpLabel;
             if(routeData.showGizmos) {
                 for(int i = 0; i < routeData.routePoints.Length; ++i) {
                     Handles.DrawWireCube(routeData.routePoints[i], new Vector3(1.5f, 1.5f, 1.5f));
-
+                    rpIndex = i + 1;
+                    rpLabel = rpIndex.ToString();
+                    Handles.Label(routeData.routePoints[i] + new Vector3(0, 10, 0), rpLabel);
                 }
                 for(int l = 0; l < routeData.routePoints.Length - 1; ++l) {
 
